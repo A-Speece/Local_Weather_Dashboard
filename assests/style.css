@@ -1,10 +1,10 @@
-.root{
-    color: black;
+.root {
+  color: black;
 }
 header {
-  background-color: blue;
+  background-image: linear-gradient(to right, blue, navy);
   color: azure;
-  text-align: left;
+  text-align: center;
 }
 
 #fivedayforcast {
