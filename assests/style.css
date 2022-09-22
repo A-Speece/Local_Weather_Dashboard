@@ -1,0 +1,12 @@
+.root{
+    color: black;
+}
+header {
+  background-color: blue;
+  color: azure;
+  text-align: left;
+}
+
+#fivedayforcast {
+  background-color: gray;
+}
