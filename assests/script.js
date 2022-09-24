@@ -1,6 +1,7 @@
 var searchCityFormEl = $("#search-form");
 var cityInputEl = $("#search-input");
-var apiKey = "843fa40ad68a96668befb0da86d9b44b";
+var currentCityEl = $("#currentcity");
+var apiKey = "23ac2568a81ce4969e4c7f31ad40c4ed";
 
 function getCityDetail(cityName) {
   fetch(
