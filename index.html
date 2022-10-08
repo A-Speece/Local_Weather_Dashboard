@@ -11,18 +11,22 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="./assests/style.css" />
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"
+    ></script>
   </head>
   <body>
     <header>
       <div id="weather-header" class="navbar">
         <div class="container-fluid">
-          <h1>Weather Dashboard</h1>
+          <h1 id="nav-title">Weather Dashboard</h1>
         </div>
       </div>
     </header>
     <main class="row justify-content-around">
-      <div class="col-3 col-md-3 bg-light p-3">
-        <h1 class="text-primary">Search for a City</h1>
+      <div id="search-city" class="col-3 col-md-3 bg-light p-3">
+        <h1 class="text" style="color: black">Search for a City</h1>
         <form id="search-form" class="mb-2">
           <input
             id="search-input"
@@ -31,67 +35,36 @@
             placeholder="Fort Worth"
           />
 
-          <button class="btn btn-info btn-block">Search</button>
+          <button id="form-button" class="btn btn-info btn-block">
+            Search
+          </button>
+          <hr id="line" />
         </form>
         <div class="search-container"></div>
       </div>
       <div class="col-9">
-        <div class="card mb-3" style="max-width: 1000px">
+        <div id="currentCityCard" class="card mb-3" style="max-width: 1000px">
           <div class="row no-gutters">
             <div class="col-md-8">
               <div class="card-body">
                 <div>
-                  <h2 id="current-city">City</h2>
+                  <h2 id="current-city" style="font-weight: bold">
+                    City <img src="" />
+                  </h2>
                   <p class="card-text"></p>
-                  <h3>Temp</h3>
+                  <h4 id="current-temp">Temp</h4>
                   <p class="card-text"></p>
-                  <h3>Wind</h3>
+                  <h4 id="current-wind">Wind</h4>
                   <p></p>
-                  <h3>Humidity</h3>
+                  <h4 id="current-humidity">Humidity</h4>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div>
-          <h3>5-Day Forcast</h3>
-          <div class="row row-cols-1 row-cols-md-5">
-            <div class="card" style="width: 12rem">
-              <h3>Date</h3>
-              <h2>Image</h2>
-              <h2>Temp</h2>
-              <h2>Wind</h2>
-              <h2>Wind</h2>
-            </div>
-            <div class="card" style="width: 12rem">
-              <h3>Date</h3>
-              <h2>Image</h2>
-              <h2>Temp</h2>
-              <h2>Wind</h2>
-              <h2>Wind</h2>
-            </div>
-            <div class="card" style="width: 12rem">
-              <h3>Date</h3>
-              <h2>Image</h2>
-              <h2>Temp</h2>
-              <h2>Wind</h2>
-              <h2>Wind</h2>
-            </div>
-            <div class="card" style="width: 12rem">
-              <h3>Date</h3>
-              <h2>Image</h2>
-              <h2>Temp</h2>
-              <h2>Wind</h2>
-              <h2>Wind</h2>
-            </div>
-            <div class="card" style="width: 12rem">
-              <h3>Date</h3>
-              <h2>Image</h2>
-              <h2>Temp</h2>
-              <h2>Wind</h2>
-              <h2>Wind</h2>
-            </div>
-          </div>
+          <h3 id="textfiveday" style="font-weight: bold">5-Day Forcast:</h3>
+          <div id="forcastContainer" class="row row-cols-1 row-cols-md-5"></div>
         </div>
       </div>
     </main>
