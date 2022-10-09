@@ -42,7 +42,7 @@ function getCityWeather(lat, lon) {
       var contents = "";
       for (let index = 7; index < data.list.length; index += 8) {
         var rowData = data.list[index];
-        console.log(rowData);
+
         contents += `<div class="card" style="width: 12rem">
         <h3>${rowData.dt_txt.substr(0, 10)}</h3>
         <img src="https://openweathermap.org/img/wn/${
@@ -68,7 +68,6 @@ function getCurrentWeather(lat, lon) {
       return res.json();
     })
     .then(function (data) {
-      console.log(data);
       currentCity = currentCity.text(data.name + " " + "(" + today + ")");
       currentCityIcon.style.display = "flex";
       currentCityIcon.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
