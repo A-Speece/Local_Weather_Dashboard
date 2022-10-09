@@ -8,13 +8,25 @@ header {
   justify-content: center;
 }
 
+#current-city-icon {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#current-city-icon img {
+  display: none;
+  width: 50px;
+  height: auto;
+}
+
 #form-button {
-  background-color: rgb(80, 179, 240);
+  background-color: blue;
   width: 100%;
   margin-top: 10px;
   padding: 5px;
   border-color: black;
   font-weight: bold;
+  color: white;
 }
 
 #currentCityCard {
@@ -34,10 +46,16 @@ header {
 }
 
 #forcastContainer div {
-  background-color: darkgrey;
+  background-color: navy;
   margin-right: 10px;
   border-color: black;
+  color: white;
 }
+#forcastContainer img {
+  width: 40%;
+  height: auto;
+}
+
 
 .search-container {
   display: flex;
@@ -52,7 +70,4 @@ header {
   border-radius: 4px;
 }
 
-#forcastContainer img {
-  width: 40%;
-  height: auto;
-}
+

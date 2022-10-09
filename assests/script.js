@@ -1,3 +1,4 @@
+//Global Variables
 var searchCityFormEl = $("#search-form");
 var cityInputEl = $("#search-input");
 var currentCity = $("#current-city");
@@ -10,7 +11,9 @@ var apiKey = "23ac2568a81ce4969e4c7f31ad40c4ed";
 var searchHistoryArray = [];
 var searchContainer = $(".search-container");
 var forcastContainer = $("#forcastContainer");
+var currentCityIcon = document.getElementById("weather-icon");
 
+//Function to get City detail and use the
 function getCityDetail(cityName) {
   fetch(
     "http://api.openweathermap.org/geo/1.0/direct?q=" +
@@ -22,12 +25,12 @@ function getCityDetail(cityName) {
       return res.json();
     })
     .then(function (data) {
-      console.log(data);
       getCityWeather(data[0].lat, data[0].lon);
       getCurrentWeather(data[0].lat, data[0].lon);
     });
 }
 
+//function used to get the create the 5 day forcast
 function getCityWeather(lat, lon) {
   fetch(
     `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`
@@ -57,7 +60,7 @@ function getCityWeather(lat, lon) {
       forcastContainer.html(contents);
     });
 }
-
+//function to get the current day city weather
 function getCurrentWeather(lat, lon) {
   fetch(
     `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`
@@ -68,9 +71,9 @@ function getCurrentWeather(lat, lon) {
     .then(function (data) {
       console.log(data);
       currentCity = currentCity.text(data.name + " " + "(" + today + ")");
-      // currentCity = currentCity.img(
-      //   `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
-      // );
+      currentCityIcon.style.display = "flex";
+      currentCityIcon.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+
       currentTemp = currentTemp.text("Temp: " + data.main.temp + "\xB0F");
       currentWind = currentWind.text("Wind: " + data.wind.speed + " MPH");
       currentHumidity = currentHumidity.text(
@@ -78,7 +81,7 @@ function getCurrentWeather(lat, lon) {
       );
     });
 }
-
+// functions used to store and get the city values from the user input
 function citySearch(event) {
   event.preventDefault();
   var cityName = cityInputEl.val();
@@ -101,7 +104,7 @@ function setStorage(input) {
     renderButtons();
   }
 }
-
+// funcstion to create the buttons from previous used cities
 function renderButtons() {
   searchContainer.empty();
   for (let I = 0; I < searchHistoryArray.length; I++) {
@@ -111,7 +114,7 @@ function renderButtons() {
     searchContainer.append(button);
   }
 }
-
+// funcstion and call to get the user city inputs from local storage
 function getCityStorage() {
   var cityButton = localStorage.getItem("citySearch");
 
@@ -124,5 +127,5 @@ function getCityStorage() {
 }
 
 getCityStorage();
-
+// call to display the current and five day forcast on user submit
 searchCityFormEl.on("submit", citySearch);
