@@ -39,7 +39,6 @@ function getCityWeather(lat, lon) {
       return res.json();
     })
     .then(function (data) {
-      console.log(data);
       var contents = "";
       for (let index = 7; index < data.list.length; index += 8) {
         var rowData = data.list[index];
