@@ -40,7 +40,7 @@ function getCityWeather(lat, lon) {
     })
     .then(function (data) {
       var contents = "";
-      for (let index = 0; index < data.list.length; index += 8) {
+      for (let index = 7; index < data.list.length; index += 8) {
         var rowData = data.list[index];
 
         contents += `<div class="card" style="width: 12rem">
