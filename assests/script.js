@@ -16,7 +16,7 @@ var currentCityIcon = document.getElementById("weather-icon");
 //Function to get City detail and use the
 function getCityDetail(cityName) {
   fetch(
-    "http://api.openweathermap.org/geo/1.0/direct?q=" +
+    "https://api.openweathermap.org/geo/1.0/direct?q=" +
       cityName +
       "&limit=1&appid=" +
       apiKey
@@ -33,7 +33,7 @@ function getCityDetail(cityName) {
 //function used to get the create the 5 day forcast
 function getCityWeather(lat, lon) {
   fetch(
-    `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`
+    `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`
   )
     .then(function (res) {
       return res.json();
