@@ -28,6 +28,6 @@ Website Url: https://a-speece.github.io/Local_Weather_Dashboard/ GitHub Repo:htt
 
 ## Screenshot
 
-![Screenshot1.png](./assets/images/Screenshot1.png)
+![Screenshot1.png](./assests/images/Screenshot1.png)
 
-![Screenshot2.png](./assets/images/Screenshot2.png)
+![Screenshot2.png](./assests/images/Screenshot2.png)
